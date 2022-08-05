@@ -1,24 +1,35 @@
 :root {
   --primary: #c0a956;
   --secondary: #faeaca;
-  --text: #090807
+  --text-light: #ebebeb;
+  --text-dark: #170e04;
+  --text-secondary: #b4b4b4;
+  --text-highlight: #c0a956;
+  --text-highlight-dark: #8d6f32;
+  --text-error: #8d0d0d;
 }
 
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Poppins", sans-serif;
-  color: #555555;
+  color: var(--text-dark);
 }
 
 a {
   text-decoration: none;
-  color: #7cc576;
+  color: var(--text-highlight);
 }
 
 a:hover {
-  color: #9ed49a;
+  color: var(--text-highlight-dark);
   text-decoration: none;
 }
 
@@ -41,18 +52,18 @@ h6 {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 10px grey;
+  box-shadow: inset 0 0 10px var(--text-dark);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #32752c;
+  background: var(--text-highlight);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #0c5a06;
+  background: var(--text-highlight-dark);
 }
 
 /*--------------------------------------------------------------
@@ -65,7 +76,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #c0a956;
+  background: var(--primary);
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -79,7 +90,7 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #97d193;
+  background: var(--primary);
   color: #fff;
 }
 
@@ -107,6 +118,8 @@ h6 {
   transition: all 0.5s;
   background: #fff;
   box-shadow: 0 4px 10px -3px rgba(191, 191, 191, 0.5);
+  margin: 0 auto;
+  width: 100%;
 }
 
 #header .logo h1 {
@@ -152,6 +165,14 @@ h6 {
 /**
 * Desktop Navigation 
 */
+.nav {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .navbar {
   padding: 0;
 }
@@ -175,7 +196,7 @@ h6 {
   justify-content: space-between;
   padding: 10px 0 10px 30px;
   font-size: 15px;
-  color: #151515;
+  color: var(--text-dark);
   text-transform: uppercase;
   white-space: nowrap;
   transition: 0.3s;
@@ -192,7 +213,28 @@ h6 {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #7cc576;
+  color: var(--text-highlight);
+}
+
+.navbar .btn {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 3px;
+  margin: 10px;
+  margin-left: 25px;
+  color: #fff;
+  background: var(--text-highlight);
+}
+
+.navbar .btn:hover {
+  transition: 0.5s;
+  background: #fff;
+  color: var(--text-highlight-dark);
 }
 
 .navbar .dropdown ul {
@@ -228,7 +270,7 @@ h6 {
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: #7cc576;
+  color: var(--text-primary);
 }
 
 .navbar .dropdown:hover>ul {
@@ -326,7 +368,7 @@ h6 {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  color: #7cc576;
+  color: var(--text-primary);
 }
 
 .navbar-mobile .getstarted {
@@ -360,7 +402,7 @@ h6 {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover>a {
-  color: #7cc576;
+  color: var(--text-primary);
 }
 
 .navbar-mobile .dropdown>.dropdown-active {
@@ -373,7 +415,7 @@ h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/hero-bg.jpeg") #020202b8;
+  background: url("../img/hero-bg.jpeg") #291c08b8;
   background-size: cover;
   background-blend-mode: multiply;
   position: relative;
@@ -427,8 +469,9 @@ h6 {
 }
 
 #hero h1 i {
-  font-size: 60px;
+  font-size: 50px;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 #hero h2 {
@@ -510,6 +553,18 @@ section {
 /*--------------------------------------------------------------
 # About Us
 --------------------------------------------------------------*/
+.section-title p {
+  margin: 0 auto;
+  width: 40%;
+  margin-bottom: 0;
+  color: var(--text-highlight);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--text-highlight);
+}
+
 .about .image {
   padding: 20px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
@@ -534,7 +589,7 @@ section {
 .about .content ul i {
   font-size: 24px;
   padding: 2px 6px 0 0;
-  color: #7cc576;
+  color: var(--text-highlight);
 }
 
 .about .content p:last-child {
@@ -542,27 +597,27 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Services
+# Rooms
 --------------------------------------------------------------*/
-.services .icon-box h4 {
+.rooms .icon-box h4 {
   font-size: 20px;
   font-weight: 700;
   margin: 5px 0 10px 60px;
 }
 
-.services .icon-box i {
+.rooms .icon-box i {
   font-size: 48px;
   float: left;
-  color: #7cc576;
+  color: var(--text-primary);
 }
 
-.services .icon-box p {
+.rooms .icon-box p {
   font-size: 15px;
   color: #959595;
   margin-left: 60px;
 }
 
-.services .image {
+.rooms .image {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -595,7 +650,7 @@ section {
 }
 
 .featured .nav-link:hover h4 {
-  color: #7cc576;
+  color: var(--text-primary);
 }
 
 .featured .nav-link p {
@@ -608,7 +663,7 @@ section {
 }
 
 .featured .nav-link.active h4 {
-  color: #7cc576;
+  color: var(--text-primary);
 }
 
 .featured .tab-pane.active {
@@ -704,7 +759,7 @@ section {
 }
 
 .why-us .accordion-list span {
-  color: #7cc576;
+  color: var(--text-primary);
   font-weight: 600;
   font-size: 18px;
   padding-right: 10px;
@@ -731,7 +786,7 @@ section {
 }
 
 .why-us .accordion-list a.collapsed:hover {
-  color: #7cc576;
+  color: var(--text-primary);
 }
 
 .why-us .accordion-list a.collapsed .icon-show {
@@ -745,7 +800,7 @@ section {
 .why-us .play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(#7cc576 50%, rgba(124, 197, 118, 0.4) 52%);
+  background: radial-gradient(var(--text-primary) 50%, rgba(124, 197, 118, 0.4) 52%);
   border-radius: 50%;
   display: block;
   position: absolute;
@@ -786,14 +841,14 @@ section {
   animation-timing-function: steps;
   opacity: 1;
   border-radius: 50%;
-  border: 5px solid rgba(124, 197, 118, 0.7);
+  border: 5px solid rgba(215, 171, 12, 0.7);
   top: -15%;
   left: -15%;
   background: rgba(198, 16, 0, 0);
 }
 
 .why-us .play-btn:hover::after {
-  border-left: 15px solid #7cc576;
+  border-left: 15px solid var(--text-primary);
   transform: scale(20);
 }
 
@@ -859,20 +914,20 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Portfolio
+# Gallery
 --------------------------------------------------------------*/
-.portfolio .portfolio-item {
+.gallery .gallery-item {
   margin-bottom: 30px;
 }
 
-.portfolio #portfolio-flters {
+.gallery #gallery-flters {
   padding: 0;
   margin: 0 auto 25px auto;
   list-style: none;
   text-align: center;
 }
 
-.portfolio #portfolio-flters li {
+.gallery #gallery-flters li {
   cursor: pointer;
   display: inline-block;
   padding: 10px 18px 12px 18px;
@@ -887,17 +942,17 @@ section {
   border-radius: 4px;
 }
 
-.portfolio #portfolio-flters li:hover,
-.portfolio #portfolio-flters li.filter-active {
-  background: #7cc576;
+.gallery #gallery-flters li:hover,
+.gallery #gallery-flters li.filter-active {
+  background: var(--text-primary);
   color: #fff;
 }
 
-.portfolio #portfolio-flters li:last-child {
+.gallery #gallery-flters li:last-child {
   margin-right: 0;
 }
 
-.portfolio .portfolio-wrap {
+.gallery .gallery-wrap {
   transition: 0.3s;
   position: relative;
   overflow: hidden;
@@ -905,7 +960,7 @@ section {
   background: rgba(0, 0, 0, 0.6);
 }
 
-.portfolio .portfolio-wrap::before {
+.gallery .gallery-wrap::before {
   content: "";
   background: rgba(21, 21, 21, 0.6);
   position: absolute;
@@ -918,7 +973,7 @@ section {
   opacity: 0;
 }
 
-.portfolio .portfolio-wrap .portfolio-info {
+.gallery .gallery-wrap .gallery-info {
   opacity: 0;
   position: absolute;
   top: 0;
@@ -934,7 +989,7 @@ section {
   align-items: center;
 }
 
-.portfolio .portfolio-wrap .portfolio-info::before {
+.gallery .gallery-wrap .gallery-info::before {
   display: block;
   content: "";
   width: 48px;
@@ -948,7 +1003,7 @@ section {
   z-index: 9994;
 }
 
-.portfolio .portfolio-wrap .portfolio-info::after {
+.gallery .gallery-wrap .gallery-info::after {
   display: block;
   content: "";
   width: 48px;
@@ -962,13 +1017,13 @@ section {
   z-index: 9994;
 }
 
-.portfolio .portfolio-wrap .portfolio-info h4 {
+.gallery .gallery-wrap .gallery-info h4 {
   font-size: 20px;
   color: #fff;
   font-weight: 600;
 }
 
-.portfolio .portfolio-wrap .portfolio-info p {
+.gallery .gallery-wrap .gallery-info p {
   color: #ffffff;
   font-size: 14px;
   text-transform: uppercase;
@@ -976,12 +1031,12 @@ section {
   margin: 0;
 }
 
-.portfolio .portfolio-wrap .portfolio-links {
+.gallery .gallery-wrap .gallery-links {
   text-align: center;
   z-index: 4;
 }
 
-.portfolio .portfolio-wrap .portfolio-links a {
+.gallery .gallery-wrap .gallery-links a {
   color: #fff;
   margin: 0 2px;
   font-size: 28px;
@@ -989,11 +1044,11 @@ section {
   transition: 0.3s;
 }
 
-.portfolio .portfolio-wrap .portfolio-links a:hover {
-  color: #7cc576;
+.gallery .gallery-wrap .gallery-links a:hover {
+  color: var(--text-primary);
 }
 
-.portfolio .portfolio-wrap:hover::before {
+.gallery .gallery-wrap:hover::before {
   top: 0;
   left: 0;
   right: 0;
@@ -1001,16 +1056,16 @@ section {
   opacity: 1;
 }
 
-.portfolio .portfolio-wrap:hover .portfolio-info {
+.gallery .gallery-wrap:hover .gallery-info {
   opacity: 1;
 }
 
-.portfolio .portfolio-wrap:hover .portfolio-info::before {
+.gallery .gallery-wrap:hover .gallery-info::before {
   top: 15px;
   left: 15px;
 }
 
-.portfolio .portfolio-wrap:hover .portfolio-info::after {
+.gallery .gallery-wrap:hover .gallery-info::after {
   bottom: 15px;
   right: 15px;
 }
@@ -1018,37 +1073,37 @@ section {
 /*--------------------------------------------------------------
 # Portfolio Details
 --------------------------------------------------------------*/
-.portfolio-details {
+.gallery-details {
   padding-top: 40px;
 }
 
-.portfolio-details .portfolio-details-slider img {
+.gallery-details .gallery-details-slider img {
   width: 100%;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination {
+.gallery-details .gallery-details-slider .swiper-pagination {
   margin-top: 20px;
   position: relative;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+.gallery-details .gallery-details-slider .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #7cc576;
+  border: 1px solid var(--text-primary);
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #7cc576;
+.gallery-details .gallery-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--text-highlight);
 }
 
-.portfolio-details .portfolio-info {
+.gallery-details .gallery-info {
   padding: 30px;
   box-shadow: 0px 0 30px rgba(21, 21, 21, 0.08);
 }
 
-.portfolio-details .portfolio-info h3 {
+.gallery-details .gallery-info h3 {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 20px;
@@ -1056,27 +1111,27 @@ section {
   border-bottom: 1px solid #eee;
 }
 
-.portfolio-details .portfolio-info ul {
+.gallery-details .gallery-info ul {
   list-style: none;
   padding: 0;
   font-size: 15px;
 }
 
-.portfolio-details .portfolio-info ul li+li {
+.gallery-details .gallery-info ul li+li {
   margin-top: 10px;
 }
 
-.portfolio-details .portfolio-description {
+.gallery-details .gallery-description {
   padding-top: 30px;
 }
 
-.portfolio-details .portfolio-description h2 {
+.gallery-details .gallery-description h2 {
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 20px;
 }
 
-.portfolio-details .portfolio-description p {
+.gallery-details .gallery-description p {
   padding: 0;
 }
 
@@ -1107,11 +1162,11 @@ section {
 }
 
 .testimonials .quote-icon i {
-  color: #7cc576;
+  color: var(--text-highlight);
   font-size: 24px;
   padding: 18px;
   border-radius: 50px;
-  border: 2px solid #7cc576;
+  border: 2px solid var(--text-highlight);
 }
 
 .testimonials .testimonial-item {
@@ -1158,7 +1213,7 @@ section {
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #7cc576;
+  background-color: var(--text-highlight);
 }
 
 @media (min-width: 992px) {
@@ -1202,25 +1257,32 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Team
+# Facilities
 --------------------------------------------------------------*/
-.team {
+.facilities {
   background: #fff;
   padding: 60px 0;
 }
 
-.team .member {
+.facilities .member {
   margin-bottom: 20px;
   overflow: hidden;
 }
 
-.team .member .member-img {
+.facilities .member .member-img {
   position: relative;
   overflow: hidden;
   border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
 }
 
-.team .member .social {
+.facilities .member .member-img img:hover {
+  transform: scale(1.1);
+  transition: all 0.8s ease-in;
+}
+
+.facilities .member .social {
   position: absolute;
   left: 0;
   bottom: -40px;
@@ -1228,13 +1290,13 @@ section {
   height: 40px;
   opacity: 0;
   transition: bottom ease-in-out 0.4s;
-  background: rgba(124, 197, 118, 0.8);
+  background: var(--text-highlight-dark);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.team .member .social a {
+.facilities .member .social a {
   transition: color 0.3s;
   color: rgba(255, 255, 255, 0.7);
   margin: 0 10px;
@@ -1243,51 +1305,51 @@ section {
   justify-content: center;
 }
 
-.team .member .social a i {
+.facilities .member .social a i {
   line-height: 0;
 }
 
-.team .member .social a:hover {
+.facilities .member .social a:hover {
   color: #fff;
 }
 
-.team .member .social i {
+.facilities .member .social i {
   font-size: 18px;
   margin: 0 2px;
 }
 
-.team .member .member-info h4 {
+.facilities .member .member-info h4 {
   font-weight: 700;
   margin: 15px 0 5px 0;
   font-size: 18px;
 }
 
-.team .member .member-info span {
+.facilities .member .member-info span {
   display: block;
   font-size: 13px;
   text-transform: uppercase;
   font-weight: 400;
   margin-bottom: 15px;
-  color: #7cc576;
+  color: var(--text-highlight);
 }
 
-.team .member .member-info p {
+.facilities .member .member-info p {
   font-style: italic;
   font-size: 14px;
   line-height: 26px;
   color: #888888;
 }
 
-.team .member:hover .social {
+.facilities .member:hover .social {
   bottom: 0;
   opacity: 1;
   transition: bottom ease-in-out 0.4s;
 }
 
 /*--------------------------------------------------------------
-# Pricing
+# Gallery
 --------------------------------------------------------------*/
-.pricing .box {
+.gallery .box {
   padding: 20px;
   background: #fff;
   text-align: center;
@@ -1297,7 +1359,7 @@ section {
   border: 1px solid #fff;
 }
 
-.pricing .box h3 {
+.gallery .box h3 {
   font-weight: 400;
   padding: 15px;
   margin-top: 15px;
@@ -1306,7 +1368,7 @@ section {
   color: #151515;
 }
 
-.pricing .box h4 {
+.gallery .box h4 {
   font-size: 42px;
   color: #151515;
   font-weight: 700;
@@ -1314,19 +1376,19 @@ section {
   margin-bottom: 20px;
 }
 
-.pricing .box h4 sup {
+.gallery .box h4 sup {
   font-size: 20px;
   top: -15px;
   left: -3px;
 }
 
-.pricing .box h4 span {
+.gallery .box h4 span {
   color: #bababa;
   font-size: 16px;
   font-weight: 300;
 }
 
-.pricing .box ul {
+.gallery .box ul {
   padding: 0;
   list-style: none;
   color: #151515;
@@ -1335,32 +1397,32 @@ section {
   font-size: 14px;
 }
 
-.pricing .box ul li {
+.gallery .box ul li {
   padding-bottom: 16px;
 }
 
-.pricing .box ul i {
-  color: #7cc576;
+.gallery .box ul i {
+  color: var(--text-highlight);
   font-size: 18px;
   padding-right: 4px;
 }
 
-.pricing .box ul .na {
+.gallery .box ul .na {
   color: #ccc;
   text-decoration: line-through;
 }
 
-.pricing .box .btn-wrap {
+.gallery .box .btn-wrap {
   padding: 15px;
   text-align: center;
 }
 
-.pricing .box .btn-buy {
+.gallery .box .btn-buy {
   display: inline-block;
   padding: 10px 40px 12px 40px;
   border-radius: 5px;
-  border: 2px solid #7cc576;
-  color: #7cc576;
+  border: 2px solid var(--text-highlight);
+  color: var(--text-highlight);
   font-size: 14px;
   font-weight: 400;
   font-family: "Poppins", sans-serif;
@@ -1368,26 +1430,26 @@ section {
   transition: 0.3s;
 }
 
-.pricing .box .btn-buy:hover {
-  background: #7cc576;
+.gallery .box .btn-buy:hover {
+  background: var(--text-highlight);
   color: #fff;
 }
 
-.pricing .recommended {
-  border-color: #7cc576;
+.gallery .recommended {
+  border-color: var(--text-highlight);
 }
 
-.pricing .recommended .btn-buy {
-  background: #7cc576;
+.gallery .recommended .btn-buy {
+  background: var(--text-highlight);
   color: #fff;
 }
 
-.pricing .recommended .btn-buy:hover {
-  background: #61b959;
-  border-color: #61b959;
+.gallery .recommended .btn-buy:hover {
+  background: var(--text-highlight-dark);
+  border-color: var(--text-highlight-dark);
 }
 
-.pricing .recommended-badge {
+.gallery .recommended-badge {
   position: absolute;
   top: 5px;
   left: 50%;
@@ -1396,7 +1458,7 @@ section {
   font-size: 12px;
   padding: 4px 25px 6px 25px;
   background: #eaf6e9;
-  color: #7cc576;
+  color: var(--text-highlight);
   border-radius: 50px;
   text-transform: uppercase;
   font-weight: 600;
@@ -1448,7 +1510,7 @@ section {
 }
 
 .faq .faq-list a.collapsed:hover {
-  color: #7cc576;
+  color: var(--text-highlight);
 }
 
 .faq .faq-list a.collapsed .icon-show {
@@ -1472,7 +1534,7 @@ section {
 
 .contact .info i {
   font-size: 20px;
-  color: #7cc576;
+  color: var(--text-highlight);
   float: left;
   width: 44px;
   height: 44px;
@@ -1507,7 +1569,7 @@ section {
 .contact .info .email:hover i,
 .contact .info .address:hover i,
 .contact .info .phone:hover i {
-  background: #7cc576;
+  background: var(--text-highlight);
   color: #fff;
 }
 
@@ -1538,7 +1600,7 @@ section {
 .contact .php-email-form .sent-message {
   display: none;
   color: #fff;
-  background: #18d26e;
+  background: var(--text-highlight-dark);
   text-align: center;
   padding: 15px;
   font-weight: 600;
@@ -1558,7 +1620,7 @@ section {
   width: 24px;
   height: 24px;
   margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
+  border: 3px solid var(--text-highlight-dark);
   border-top-color: #eee;
   -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite;
@@ -1580,7 +1642,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"] {
-  background: #7cc576;
+  background: var(--text-highlight);
   border: 0;
   padding: 10px 24px;
   color: #fff;
@@ -1589,7 +1651,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"]:hover {
-  background: #61b959;
+  background: var(--text-highlight-dark);
 }
 
 @-webkit-keyframes animate-loading {
@@ -1737,7 +1799,7 @@ section {
   background: none;
   font-size: 16px;
   padding: 0 20px;
-  background: #7cc576;
+  background: var(--text-highlight);
   color: #fff;
   transition: 0.3s;
   border-radius: 50px;
@@ -1745,7 +1807,7 @@ section {
 }
 
 #footer .footer-top .footer-newsletter form input[type="submit"]:hover {
-  background: #5ab652;
+  background: var(--text-highlight-dark);
 }
 
 #footer .footer-top .social-links {
@@ -1755,7 +1817,7 @@ section {
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #7cc576;
+  background: var(--text-highlight);
   color: #fff;
   line-height: 1;
   padding: 8px 0;
@@ -1768,7 +1830,7 @@ section {
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #5ab652;
+  background: var(--text-highlight-dark);
   color: #fff;
   text-decoration: none;
 }
